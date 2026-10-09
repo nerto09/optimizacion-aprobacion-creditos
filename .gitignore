@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Jupyter outputs sin limpiar
+*.pyc
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Power BI (cache temporal)
+*.pbix.tmp
+*.pbix.lock
+
+# MySQL local
+*.ibd
+*.frm
+
+# Logs
+*.log

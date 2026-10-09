@@ -1,0 +1,156 @@
+
+======================================================================
+1. DIMENSIONES Y CALIDAD
+======================================================================
+Registros: 60 | Variables: 28
+Duplicados: 0
+Nulos totales: 93
+
+Nulos por columna (solo >0):
+Monto_Aprobado           21
+Tasa_Interes_Asignada    21
+Analista_Responsable     12
+Motivo_Rechazo           39
+
+Rango de fechas: 2026-01-04 a 2026-08-22
+
+======================================================================
+2. MONTO SOLICITADO - MEDIDAS
+======================================================================
+Suma      : 93,553,324.86
+Media     : 1,559,222.08
+Mediana   : 597,373.73
+Ratio media/mediana: 2.61
+Desv.tipica: 1,959,740.95
+CV        : 125.7 %
+Asimetria : 1.292
+Curtosis  : 0.308
+Min / Max : 26,853.86 / 6,379,235.54
+
+======================================================================
+3. CONCENTRACION - GINI Y LORENZ
+======================================================================
+Indice de Gini del Monto_Solicitado: 0.6280
+  Top 10% de solicitudes ( 6) concentra  37.7% del monto
+  Top 20% de solicitudes (12) concentra  65.2% del monto
+  Top 25% de solicitudes (15) concentra  74.6% del monto
+  Top 30% de solicitudes (18) concentra  80.0% del monto
+  Top 50% de solicitudes (30) concentra  94.2% del monto
+
+======================================================================
+4. POR TIPO DE PRODUCTO
+======================================================================
+                      Solicitudes  Monto_Total  Monto_Promedio  Tasa_Aprob  Riesgo  Dias  %_Solic  %_Monto
+Tipo_Producto                                                                                             
+Préstamo hipotecario           16  70810870.85      4425679.43       43.75    0.41  6.75    26.67    75.69
+Préstamo de vehículo           12  11609896.77       967491.40       58.33    0.25  6.42    20.00    12.41
+Préstamo comercial              7   8159684.05      1165669.15       57.14    0.31  6.00    11.67     8.72
+Préstamo personal               9   1678043.66       186449.30       77.78    0.21  8.33    15.00     1.79
+Tarjeta de crédito             16   1294829.53        80926.85       87.50    0.15  6.38    26.67     1.38
+
+======================================================================
+5. POR ANALISTA
+======================================================================
+                      Casos  Tasa_Aprob  Riesgo  Dias
+Analista_Responsable                                 
+M. Fernández             12       66.67    0.31  5.67
+R. Santos                 3       66.67    0.28  7.67
+L. Peralta               10       60.00    0.26  6.20
+J. Ramírez               11       54.55    0.33  6.82
+A. Guzmán                 7       42.86    0.30  7.14
+C. Núñez                  5       40.00    0.35  8.80
+
+Dispersion (max-min) tasa aprobacion: 26.67 puntos
+Automatica (sin analista): 12 casos
+  tasa aprob: 100.00% | riesgo prom: 0.113
+
+======================================================================
+6. POR CANAL
+======================================================================
+                 Solicitudes  Dias  Tasa_Aprob  Monto_Prom
+Canal_Solicitud                                           
+App móvil                  9  8.11       77.78   972611.37
+Call center                6  7.83      100.00   408771.57
+Sucursal                  16  7.69       50.00  1564386.13
+Banca en línea            16  5.62       56.25  2275777.69
+Agente externo            13  5.46       69.23  1608043.99
+
+Brecha canal mas lento vs mas rapido: 2.65 dias
+
+======================================================================
+7. TABLA DE CONTINGENCIA: RIESGO x DECISION
+======================================================================
+Resultado_Decision  Aprobado  Aprobado parcial  Rechazado  All
+Categoria_Riesgo                                              
+Riesgo alto                0                10         15   25
+Riesgo bajo               16                 0          0   16
+Riesgo medio               8                 5          2   15
+Riesgo muy alto            0                 0          4    4
+All                       24                15         21   60
+
+% por fila:
+Resultado_Decision  Aprobado  Aprobado parcial  Rechazado
+Categoria_Riesgo                                         
+Riesgo alto              0.0              40.0       60.0
+Riesgo bajo            100.0               0.0        0.0
+Riesgo medio            53.3              33.3       13.3
+Riesgo muy alto          0.0               0.0      100.0
+
+======================================================================
+8. TENDENCIA MENSUAL
+======================================================================
+                 Solicitudes        Monto  Aprob
+Fecha_Solicitud                                 
+Jan                        4  10108743.12  75.00
+Feb                        8   4370638.61  62.50
+Mar                        7   5209567.81  85.71
+Apr                        9  14636778.85  44.44
+May                        6   8749017.56  66.67
+Jun                        5  12330985.81  60.00
+Jul                       10  14101505.47  80.00
+Aug                       11  24046087.63  54.55
+
+Ene-Abr: 28 | May-Ago: 32 | variacion: +14.3%
+
+======================================================================
+9. TIEMPO DE DECISION
+======================================================================
+Media: 6.73 | Mediana: 7.0 | Min: 1 | Max: 12
+Aprobadas: 7.05 dias | Rechazadas: 6.14 dias
+
+======================================================================
+10. CORRELACIONES
+======================================================================
+                    Monto_Solicitado  Ingreso_Mensual  Score_Buro  Score_Interno  Dias_Decision  Deuda_Total_Actual
+Monto_Solicitado               1.000           -0.024      -0.080          0.559          0.049               0.101
+Ingreso_Mensual               -0.024            1.000      -0.206         -0.207          0.042               0.383
+Score_Buro                    -0.080           -0.206       1.000         -0.545         -0.044              -0.148
+Score_Interno                  0.559           -0.207      -0.545          1.000         -0.010               0.006
+Dias_Decision                  0.049            0.042      -0.044         -0.010          1.000              -0.038
+Deuda_Total_Actual             0.101            0.383      -0.148          0.006         -0.038               1.000
+
+======================================================================
+11. VALORES ATIPICOS (metodo IQR)
+======================================================================
+Limite superior: 4,535,995.60
+Atipicos: 8 solicitudes (13.3%) que concentran 48.1% del monto
+ ID_Solicitud        Tipo_Producto  Monto_Solicitado  Score_Interno Resultado_Decision
+       500010 Préstamo hipotecario        5462707.21           0.45          Rechazado
+       500012 Préstamo hipotecario        4976827.66           0.34          Rechazado
+       500015 Préstamo hipotecario        5337131.81           0.21   Aprobado parcial
+       500019 Préstamo hipotecario        6136804.93           0.41   Aprobado parcial
+       500027 Préstamo hipotecario        6294790.27           0.37   Aprobado parcial
+       500033 Préstamo hipotecario        4725489.39           0.40          Rechazado
+       500052 Préstamo hipotecario        6379235.54           0.41   Aprobado parcial
+       500055 Préstamo hipotecario        5685006.88           0.56          Rechazado
+
+======================================================================
+12. MOTIVOS DE RECHAZO
+======================================================================
+Motivo_Rechazo
+Nivel de endeudamiento elevado       6
+Historial crediticio desfavorable    5
+Capacidad de pago insuficiente       4
+Documentación incompleta             3
+Antigüedad laboral insuficiente      2
+Créditos en mora activos             1

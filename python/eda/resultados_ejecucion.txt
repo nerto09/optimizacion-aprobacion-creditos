@@ -1,0 +1,189 @@
+
+======================================================================
+BLOQUE 1. Carga del archivo CSV
+======================================================================
+Archivo cargado correctamente: banco_comercial_solicitudes.csv
+
+======================================================================
+BLOQUE 2. Primeras 5 filas del conjunto de datos
+======================================================================
+   ID_Solicitud Fecha_Solicitud         Tipo_Producto  Monto_Solicitado  Plazo_Solicitado_Meses Canal_Solicitud Estado_Solicitud     Genero   Estado_Civil Nivel_Educativo  Ingreso_Mensual    Tipo_Empleo  Antiguedad_Laboral_Meses  Score_Buro  Creditos_Activos  Creditos_En_Mora  Dias_Max_Atraso_Historico  Deuda_Total_Actual  Score_Interno Categoria_Riesgo Resultado_Decision  Monto_Aprobado  Tasa_Interes_Asignada Analista_Responsable Fecha_Decision            Motivo_Rechazo
+0        500001      2026-07-25  Préstamo de vehículo         373072.44                      84     Call center        Procesada  Masculino    Unión libre   Universitario         62446.24    Comerciante                       209         729                 4                 0                         22           227972.61           0.16     Riesgo medio           Aprobado       373072.44                  18.32           J. Ramírez     2026-08-02                       NaN
+1        500002      2026-08-16     Préstamo personal         196063.48                      48        Sucursal        Procesada  Masculino  Divorciado(a)   Universitario         62583.64    Comerciante                       229         743                 0                 0                          0                0.00           0.14      Riesgo bajo           Aprobado       196063.48                  16.62                  NaN     2026-08-28                       NaN
+2        500003      2026-07-06    Tarjeta de crédito         120648.64                      36  Agente externo        Procesada  Masculino     Soltero(a)       Postgrado         85656.64    Comerciante                       147         747                 0                 0                         37                0.00           0.07      Riesgo bajo           Aprobado       120648.64                  14.00                  NaN     2026-07-09                       NaN
+3        500004      2026-04-14     Préstamo personal         159528.23                      18        Sucursal        Procesada   Femenino       Viudo(a)         Técnico         50728.19  Independiente                        71         627                 0                 1                         57                0.00           0.34      Riesgo alto          Rechazado             NaN                    NaN         M. Fernández     2026-04-18  Documentación incompleta
+4        500005      2026-05-09    Tarjeta de crédito         144672.41                      24  Banca en línea        Procesada   Femenino     Soltero(a)      Secundario         29433.63    Comerciante                       153         742                 3                 0                          0           244101.85           0.15     Riesgo medio           Aprobado       144672.41                  17.75            A. Guzmán     2026-05-11                       NaN
+
+======================================================================
+BLOQUE 3. Dimensiones del conjunto de datos
+======================================================================
+Filas: 60
+Columnas: 26
+
+======================================================================
+BLOQUE 4. Nombres de las columnas
+======================================================================
+   1. ID_Solicitud
+   2. Fecha_Solicitud
+   3. Tipo_Producto
+   4. Monto_Solicitado
+   5. Plazo_Solicitado_Meses
+   6. Canal_Solicitud
+   7. Estado_Solicitud
+   8. Genero
+   9. Estado_Civil
+  10. Nivel_Educativo
+  11. Ingreso_Mensual
+  12. Tipo_Empleo
+  13. Antiguedad_Laboral_Meses
+  14. Score_Buro
+  15. Creditos_Activos
+  16. Creditos_En_Mora
+  17. Dias_Max_Atraso_Historico
+  18. Deuda_Total_Actual
+  19. Score_Interno
+  20. Categoria_Riesgo
+  21. Resultado_Decision
+  22. Monto_Aprobado
+  23. Tasa_Interes_Asignada
+  24. Analista_Responsable
+  25. Fecha_Decision
+  26. Motivo_Rechazo
+
+======================================================================
+BLOQUE 5. Estructura y tipos de datos (info)
+======================================================================
+<class 'pandas.DataFrame'>
+RangeIndex: 60 entries, 0 to 59
+Data columns (total 26 columns):
+ #   Column                     Non-Null Count  Dtype  
+---  ------                     --------------  -----  
+ 0   ID_Solicitud               60 non-null     int64  
+ 1   Fecha_Solicitud            60 non-null     str    
+ 2   Tipo_Producto              60 non-null     str    
+ 3   Monto_Solicitado           60 non-null     float64
+ 4   Plazo_Solicitado_Meses     60 non-null     int64  
+ 5   Canal_Solicitud            60 non-null     str    
+ 6   Estado_Solicitud           60 non-null     str    
+ 7   Genero                     60 non-null     str    
+ 8   Estado_Civil               60 non-null     str    
+ 9   Nivel_Educativo            60 non-null     str    
+ 10  Ingreso_Mensual            60 non-null     float64
+ 11  Tipo_Empleo                60 non-null     str    
+ 12  Antiguedad_Laboral_Meses   60 non-null     int64  
+ 13  Score_Buro                 60 non-null     int64  
+ 14  Creditos_Activos           60 non-null     int64  
+ 15  Creditos_En_Mora           60 non-null     int64  
+ 16  Dias_Max_Atraso_Historico  60 non-null     int64  
+ 17  Deuda_Total_Actual         60 non-null     float64
+ 18  Score_Interno              60 non-null     float64
+ 19  Categoria_Riesgo           60 non-null     str    
+ 20  Resultado_Decision         60 non-null     str    
+ 21  Monto_Aprobado             39 non-null     float64
+ 22  Tasa_Interes_Asignada      39 non-null     float64
+ 23  Analista_Responsable       48 non-null     str    
+ 24  Fecha_Decision             60 non-null     str    
+ 25  Motivo_Rechazo             21 non-null     str    
+dtypes: float64(6), int64(7), str(13)
+memory usage: 12.3 KB
+
+======================================================================
+BLOQUE 6. Estadisticas descriptivas de columnas numericas
+======================================================================
+       ID_Solicitud  Monto_Solicitado  Plazo_Solicitado_Meses  Ingreso_Mensual  Antiguedad_Laboral_Meses  Score_Buro  Creditos_Activos  Creditos_En_Mora  Dias_Max_Atraso_Historico  Deuda_Total_Actual  Score_Interno  Monto_Aprobado  Tasa_Interes_Asignada
+count         60.00             60.00                   60.00            60.00                     60.00       60.00             60.00             60.00                      60.00               60.00          60.00           39.00                  39.00
+mean      500030.50        1559222.08                   65.20         48895.93                    158.18      723.05              1.95              0.23                      23.20           175495.82           0.27       934390.52                  19.93
+std           17.46        1959740.95                   67.43         33559.92                     92.24       67.02              1.58              0.50                      27.85           167700.96           0.15      1407394.56                   4.24
+min       500001.00          26853.86                    6.00         13856.63                     14.00      512.00              0.00              0.00                       0.00                0.00           0.04        26853.86                  14.00
+25%       500015.75         126794.83                   18.00         21673.69                     84.00      727.75              0.00              0.00                       0.00                0.00           0.14        71599.62                  16.74
+50%       500030.50         597373.73                   36.00         29830.56                    147.00      743.00              2.00              0.00                      16.00           136529.21           0.25       253180.24                  18.02
+75%       500045.25        1890475.14                   84.00         79318.73                    229.00      756.00              3.00              0.00                      38.00           337709.10           0.37      1076826.75                  23.56
+max       500060.00        6379235.54                  240.00        113301.46                    400.00      819.00              4.00              2.00                     104.00           571653.33           0.68      5255571.12                  28.00
+
+======================================================================
+BLOQUE 7. Valores nulos por columna
+======================================================================
+ID_Solicitud                  0
+Fecha_Solicitud               0
+Tipo_Producto                 0
+Monto_Solicitado              0
+Plazo_Solicitado_Meses        0
+Canal_Solicitud               0
+Estado_Solicitud              0
+Genero                        0
+Estado_Civil                  0
+Nivel_Educativo               0
+Ingreso_Mensual               0
+Tipo_Empleo                   0
+Antiguedad_Laboral_Meses      0
+Score_Buro                    0
+Creditos_Activos              0
+Creditos_En_Mora              0
+Dias_Max_Atraso_Historico     0
+Deuda_Total_Actual            0
+Score_Interno                 0
+Categoria_Riesgo              0
+Resultado_Decision            0
+Monto_Aprobado               21
+Tasa_Interes_Asignada        21
+Analista_Responsable         12
+Fecha_Decision                0
+Motivo_Rechazo               39
+
+Total de valores nulos en el dataset: 93
+
+======================================================================
+BLOQUE 8. Registros duplicados
+======================================================================
+Filas duplicadas: 0
+
+======================================================================
+BLOQUE 9. Conteo de registros por categoria relevante
+======================================================================
+>> Solicitudes por Tipo_Producto:
+Tipo_Producto
+Tarjeta de crédito      16
+Préstamo hipotecario    16
+Préstamo de vehículo    12
+Préstamo personal        9
+Préstamo comercial       7
+
+>> Resultado de la decision (aprobacion):
+Resultado_Decision
+Aprobado            24
+Rechazado           21
+Aprobado parcial    15
+
+>> Solicitudes por Categoria_Riesgo:
+Categoria_Riesgo
+Riesgo alto        25
+Riesgo bajo        16
+Riesgo medio       15
+Riesgo muy alto     4
+
+>> Solicitudes por Canal_Solicitud:
+Canal_Solicitud
+Sucursal          16
+Banca en línea    16
+Agente externo    13
+App móvil          9
+Call center        6
+
+======================================================================
+BLOQUE 10. Metricas de Monto_Solicitado (variable clave)
+======================================================================
+Suma total solicitada : 93,553,324.86
+Promedio solicitado   : 1,559,222.08
+Monto minimo          : 26,853.86
+Monto maximo          : 6,379,235.54
+
+======================================================================
+BLOQUE 11. Resumen de los principales resultados
+======================================================================
+- Total de solicitudes analizadas : 60
+- Monto total solicitado          : RD$ 93,553,324.86
+- Tasa de aprobacion              : 65.00 %
+- Riesgo interno promedio (0-1)   : 0.27
+- Producto mas solicitado         : Tarjeta de crédito (16)
+- Ingreso mensual promedio        : RD$ 48,895.93
+- Score de buro promedio          : 723
